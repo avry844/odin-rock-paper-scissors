@@ -1,144 +1,83 @@
+const results = document.querySelector(".results h1") 
+const rockButton = document.querySelector('#rock')
+const paperButton = document.querySelector('#paper')
+const scissorsButton = document.querySelector('#scissors')
+
 function getComputerChoice() {
 
     r = Math.random()
     if (r > 0.66) {
-
         return "scissors"
-
     }
 
     if (r > 0.33) {
-
         return "paper"
-
     }
 
     else {
-
         return "rock"
-
     }
 
 }
 
-function getHumanChoice() {
-
-    let choice = prompt("rock, paper, scissors: ")
-
-    if (choice.toLowerCase() == "rock") {
-
-        return "rock"
-
-    }
-
-    if (choice.toLowerCase() == "paper") {
-
-        return "paper"
-
-    }
-
-    if (choice.toLowerCase() == "scissors") {
-
-        return "scissors"
-
-    }
-
-}
+let compChoice = ""
+let humanChoice = ""
 
 let humanScore = 0
 let computerScore = 0
 
-function playRound(humanChoice, computerChoice) {
+rockButton.addEventListener("click", (event) => {
+    humanChoice = "rock"
+    compChoice = getComputerChoice()
 
-    if (humanChoice == computerChoice) {
-
-        console.log("Tie")
-
+    if (humanChoice == compChoice) {
+        results.textContent = "Tie."
     }
 
-    if (humanChoice == "rock") {
-
-        if (computerChoice == "paper") {
-
-            console.log("You lose! paper beats rock")
-            computerScore += 1
-
-        }
-
-        if (computerChoice == "scissors") {
-
-            console.log("You win! rock beats scissors")
-            humanScore += 1
-
-        }
-
+    if (compChoice == "paper") {
+        results.textContent = "You lost, paper beats rock."
     }
 
-    if (humanChoice == "paper") {
-
-        if (computerChoice == "scissors") {
-
-            console.log("You lose! scissors cuts paper")
-            computerScore += 1
-
-        }
-
-        if (computerChoice == "rock") {
-
-            console.log("You win! paper beats rock")
-            humanScore += 1
-
-        }
-
+    if (compChoice == "scissors") {
+        results.textContent = "You won, rock beats scissors!"
     }
 
-    if (humanChoice == "scissors") {
+})
 
-        if (computerChoice == "rock") {
+paperButton.addEventListener("click", (event) => {
+    humanChoice = "paper"
+    compChoice = getComputerChoice()
 
-            console.log("You lose! rock beats scissors")
-            computerScore += 1
-
-        }
-
-        if (computerChoice == "paper") {
-
-            console.log("You win! scissors cuts paper")
-            humanScore += 1
-
-        }
-
+    if (humanChoice == compChoice) {
+        results.textContent = "Tie."
     }
 
-}
+    if (compChoice == "scissors") {
+        results.textContent = "You lost, scissors cuts paper."
+    }
 
-function playGame() {
-    let humanSelection = getHumanChoice()
-    let computerSelection = getComputerChoice()
+    if (compChoice == "rock") {
+        results.textContent = "You won, paper beats rock!"
+    }
+})
 
-    playRound(humanSelection, computerSelection)
+scissorsButton.addEventListener("click", (event) => {
+    humanChoice = "scissors"
+    compChoice = getComputerChoice()
 
-    humanSelection = getHumanChoice()
-    computerSelection = getComputerChoice()
+    if (humanChoice == compChoice) {
+        results.textContent = "Tie."
+    }
 
-    playRound(humanSelection, computerSelection)
+    if (compChoice == "rock") {
+        results.textContent = "You lost, rock beats scissors."
+    }
 
-    humanSelection = getHumanChoice()
-    computerSelection = getComputerChoice()
+    if (compChoice == "paper") {
+        results.textContent = "You won, scissors cuts paper!"
+    }
+})
 
-    playRound(humanSelection, computerSelection)
 
-    humanSelection = getHumanChoice()
-    computerSelection = getComputerChoice()
 
-    playRound(humanSelection, computerSelection)
 
-    humanSelection = getHumanChoice()
-    computerSelection = getComputerChoice()
-
-    playRound(humanSelection, computerSelection)
-
-    console.log("The computer won " + computerScore + " time(s), you won " + humanScore + " time(s), and you tied " + (5 - (computerScore + humanScore)) + " time(s)")
-}
-
-playGame()
