@@ -1,5 +1,5 @@
-const results = document.querySelector(".results h1") 
-const score = document.querySelector(".score h1")
+const results = document.querySelector(".results h2") 
+const score = document.querySelector(".score p")
 const rockButton = document.querySelector('#rock')
 const paperButton = document.querySelector('#paper')
 const scissorsButton = document.querySelector('#scissors')

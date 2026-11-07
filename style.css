@@ -1,0 +1,55 @@
+body {
+
+    background-color: aquamarine;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.buttons {
+
+    display: flex;
+    width: 80%;
+    margin: 25px 10%;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+}
+
+.buttons button {
+
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    border-color: black;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 10px;
+
+    font-size: 50px;
+}
+
+h1 {
+
+    font-size: 100px;
+    text-align: center;
+}
+
+.results h2 {
+
+    font-size: 75px;
+    font-weight: 200px;
+    text-align: center;
+
+}
+
+.score p {
+
+    font-size: 50px;
+    text-align: center;
+
+}
